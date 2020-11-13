@@ -32,6 +32,8 @@ public class Jungle {
         borya.setNameBreed("red");
         System.out.println("Теперь порода коровы Бори: " + borya.getNameBreed());
 
+        Panter pink = new Panter("Pink");
+       pink.sayMeow();
     }
 }
 //
