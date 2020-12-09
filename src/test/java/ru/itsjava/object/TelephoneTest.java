@@ -3,15 +3,14 @@ package ru.itsjava.object;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Класс телефон должен:")
 public class TelephoneTest {
 
     public static final String DEFAULT_NUMBER = "89111123344";
-    public static final String BRAND = "Iphone";
-    public static final String DEFAULT_BRAND = BRAND;
+
+    public static final String DEFAULT_BRAND = "Iphone";
     public static final int DEFAULT_PRICE = 70000;
 
     //    @BeforeAll
@@ -34,19 +33,19 @@ public class TelephoneTest {
                 () -> assertEquals(DEFAULT_BRAND, telephone.getBrand()),
                 () -> assertEquals(DEFAULT_PRICE, telephone.getPrice()));
     }
-
+    @DisplayName("иметь корректный геттер")
     @Test
     public void shouldHaveCorrectGetterPhoneNumber() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
         assertEquals(DEFAULT_NUMBER, telephone.getPhoneNumber());
     }
-
+    @DisplayName("иметь корректный геттер")
     @Test
     public void shouldHaveCorrectGetterBrand() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
         assertEquals(DEFAULT_BRAND, telephone.getBrand());
     }
-
+    @DisplayName("иметь корректный геттер")
     @Test
     public void shouldHaveCorrectGetterPrice() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
@@ -59,5 +58,26 @@ public class TelephoneTest {
 telephone.setPrice(71000.500);
 assertEquals(71000.500,telephone.getPrice());
     }
+    @DisplayName("иметь корректный equals")
+    @Test
+    public void shouldHaveCorrectEqualsTrue(){
+        var telephone1 = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
+        var telephone2 = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
 
+        assertTrue(telephone1.equals(telephone2));
+    }
+    @DisplayName("иметь корректный equals")
+    @Test
+    public void shouldHaveCorrectEqualsFalse(){
+        var telephone1 = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
+        var telephone2 = new Telephone("9211111111", DEFAULT_BRAND, DEFAULT_PRICE);
+
+        assertFalse(telephone1.equals(telephone2));
+    }
+    @DisplayName("иметь корректный toString")
+    @Test
+    public void shouldHaveCorrectToString(){
+        var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
+        assertEquals("{brand: " + DEFAULT_BRAND + ", tel" + DEFAULT_NUMBER + "}",telephone.toString());
+    }
 }

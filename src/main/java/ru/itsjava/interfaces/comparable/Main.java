@@ -16,6 +16,7 @@ package ru.itsjava.interfaces.comparable;
             System.out.println("После сортировки Arrays.toString(persons) = " + Arrays.toString(persons));
 
             System.out.println("personAleksandr.clone() = " + personAleksandr.clone());
+
         }
     }
 
