@@ -47,10 +47,8 @@ public class ExceptionPractice {
 //        } finally {
 //            System.out.println("Здесь в любом случае выполнится блок finally");
 //        }
-        Person person = new Person(-2, "");
+        Person person = new Person(-2, "Вася");
     }
-
-
 }
 
 
