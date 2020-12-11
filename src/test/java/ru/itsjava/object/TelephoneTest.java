@@ -33,32 +33,32 @@ public class TelephoneTest {
                 () -> assertEquals(DEFAULT_BRAND, telephone.getBrand()),
                 () -> assertEquals(DEFAULT_PRICE, telephone.getPrice()));
     }
-    @DisplayName("иметь корректный геттер")
+    @DisplayName("иметь корректный геттер PhoneNumber")
     @Test
     public void shouldHaveCorrectGetterPhoneNumber() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
         assertEquals(DEFAULT_NUMBER, telephone.getPhoneNumber());
     }
-    @DisplayName("иметь корректный геттер")
+    @DisplayName("иметь корректный геттер Brand")
     @Test
     public void shouldHaveCorrectGetterBrand() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
         assertEquals(DEFAULT_BRAND, telephone.getBrand());
     }
-    @DisplayName("иметь корректный геттер")
+    @DisplayName("иметь корректный геттер Price")
     @Test
     public void shouldHaveCorrectGetterPrice() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
         assertEquals(DEFAULT_PRICE, telephone.getPrice());
     }
-    @DisplayName("иметь корректный сеттер")
+    @DisplayName("иметь корректный сеттер Price")
     @Test
     public void shouldHaveCorrectSetterPrice() {
         var telephone = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
 telephone.setPrice(71000.500);
 assertEquals(71000.500,telephone.getPrice());
     }
-    @DisplayName("иметь корректный equals")
+    @DisplayName("иметь корректный equals True")
     @Test
     public void shouldHaveCorrectEqualsTrue(){
         var telephone1 = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
@@ -66,7 +66,7 @@ assertEquals(71000.500,telephone.getPrice());
 
         assertTrue(telephone1.equals(telephone2));
     }
-    @DisplayName("иметь корректный equals")
+    @DisplayName("иметь корректный equals False")
     @Test
     public void shouldHaveCorrectEqualsFalse(){
         var telephone1 = new Telephone(DEFAULT_NUMBER, DEFAULT_BRAND, DEFAULT_PRICE);
