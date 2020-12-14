@@ -1,7 +1,10 @@
 package ru.itsjava.collection.list.homework;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Flow;
 
 public class ListHomework {
@@ -120,6 +123,7 @@ public class ListHomework {
             }
         }
         System.out.println();
+        System.out.println();
 
 
         Person nikita = new Person("man", 22, "Nikita");
@@ -128,16 +132,29 @@ public class ListHomework {
         Person nikolay = new Person("man", 28, "Nikolay");
         Person sergey = new Person("man", 26, "Sergey");
 
-        List personList = new ArrayList();
+        List<Person> personList = new ArrayList();
         personList.add(nikita);
         personList.add(masha);
         personList.add(sasha);
         personList.add(nikolay);
         personList.add(sergey);
-
+        List<Person> personArmyList = new ArrayList();
 
         for (int i = 0; i < personList.size(); i++) {
-        if ((personList.get(i)).)
+            if ((personList.get(i)).getSex().equals("man")) {
+                if (personList.get(i).getName().charAt(0) == 'N') {
+                    if ((personList.get(i)).getAge() > 18) {
+                        if ((personList.get(i)).getAge() < 27) {
+                            personArmyList.add(personList.get(i));
+                        }
+                    }
+                }
+            }
+
+        }
+
+        for (int i = 0; i < personArmyList.size(); i++) {
+            System.out.println(personArmyList.get(i));
 
         }
     }
