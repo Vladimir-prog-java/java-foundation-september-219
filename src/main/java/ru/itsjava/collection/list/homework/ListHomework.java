@@ -119,7 +119,26 @@ public class ListHomework {
                 System.out.print(numberList.get(i) + " ");
             }
         }
+        System.out.println();
 
 
+        Person nikita = new Person("man", 22, "Nikita");
+        Person masha = new Person("women", 18, "Maria");
+        Person sasha = new Person("women", 22, "Aleksandra");
+        Person nikolay = new Person("man", 28, "Nikolay");
+        Person sergey = new Person("man", 26, "Sergey");
+
+        List personList = new ArrayList();
+        personList.add(nikita);
+        personList.add(masha);
+        personList.add(sasha);
+        personList.add(nikolay);
+        personList.add(sergey);
+
+
+        for (int i = 0; i < personList.size(); i++) {
+        if ((personList.get(i)).)
+
+        }
     }
 }
