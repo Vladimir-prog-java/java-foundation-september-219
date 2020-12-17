@@ -157,5 +157,6 @@ public class ListHomework {
             System.out.println(personArmyList.get(i));
 
         }
+
     }
 }

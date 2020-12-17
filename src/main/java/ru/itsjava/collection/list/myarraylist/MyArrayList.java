@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import ru.itsjava.object.TelephoneShop;
+
 public class MyArrayList {
     private final static int DEFAULT_CAPACITY = 10;
 
@@ -16,10 +18,20 @@ public class MyArrayList {
     }
 
     public boolean isEmpty() {
+        for (int i = 0; i < realSize; i++) {
+            if (array[i] == null) {
+                return true;
+            }
+        }
         return false;
     }
 
     public boolean contains(Object o) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -62,6 +74,8 @@ public class MyArrayList {
     }
 
     public void clear() {
+        Object[] clearArray = new Object[realSize];
+        array = clearArray;
 
     }
 
@@ -78,16 +92,60 @@ public class MyArrayList {
     }
 
     public Object set(int index, Object element) {
-        return null;
+        checkIndex(index);
+        if (realSize == array.length) {
+            Object[] resArray = new Object[3 * realSize / 2 + 1];
+            System.arraycopy(array, 0, resArray, 0, realSize);
+            array = resArray;
+        }
+        array[index] = element;
+        return array;
     }
 
     public void add(int index, Object element) {
+        checkIndex(index);
+        if (realSize == array.length) {
+            Object[] resArray = new Object[3 * realSize / 2 + 1];
+            System.arraycopy(array, 0, resArray, 0, realSize);
+            array = resArray;
+        }
+        if (array[index] != null) {
+            Object[] resArray = new Object[array.length];
+            for (int i = 0; i < array.length; i++) {
+                if (index == i) {
+//                    array[i] = resArray[i + 1];
+//                    array[i] = element;
+//                    array[i] = resArray[i];
+                    resArray[i + 1] = array[i];
+                    element = array[i];
+                    resArray[i] = array[i];
 
+                    i++;
+                }
+                array[i] = resArray[i];
+            }
+        } else array[index] = element;
     }
 
     public Object remove(int index) {
-        return null;
+        Object[] resultArray = new Object[array.length];
+        if (index == realSize) {
+            return false;
+        }
+        for (int i = 0; i < realSize; i++) {
+            if (i == index) {
+                resultArray[i] = array[i + 1];
+                i++;
+            }
+            resultArray[i] = array[i];
+        }
+        array = resultArray;
+        realSize--;
+        return array;
+
+
     }
+
 
     public int indexOf(Object o) {
         return 0;
