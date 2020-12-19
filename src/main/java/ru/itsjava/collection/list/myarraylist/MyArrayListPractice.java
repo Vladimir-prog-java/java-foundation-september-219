@@ -25,8 +25,8 @@ public class MyArrayListPractice {
         System.out.println("myArrayList = " + myArrayList);
 myArrayList.add(1,"STR0");
         System.out.println("myArrayList = " + myArrayList);
-myArrayList.remove(1);
-        System.out.println("myArrayList = " + myArrayList);
+//myArrayList.remove(1);
+//        System.out.println("myArrayList = " + myArrayList);
 
     }
 

@@ -1,7 +1,5 @@
 package ru.itsjava.collection.list.myarraylist;
 
-import ru.itsjava.object.TelephoneShop;
-
 public class MyArrayList {
     private final static int DEFAULT_CAPACITY = 10;
 
@@ -108,23 +106,18 @@ public class MyArrayList {
             Object[] resArray = new Object[3 * realSize / 2 + 1];
             System.arraycopy(array, 0, resArray, 0, realSize);
             array = resArray;
-        }
-        if (array[index] != null) {
-            Object[] resArray = new Object[array.length];
+        } else if (array[index] != null) {
             for (int i = 0; i < array.length; i++) {
                 if (index == i) {
-//                    array[i] = resArray[i + 1];
-//                    array[i] = element;
-//                    array[i] = resArray[i];
-                    resArray[i + 1] = array[i];
-                    element = array[i];
-                    resArray[i] = array[i];
-
+                    array[i]= array[i+1];
+                    array[i]=element;
                     i++;
                 }
-                array[i] = resArray[i];
+
             }
-        } else array[index] = element;
+        } else {
+            array[index] = element;
+        }
     }
 
     public Object remove(int index) {
