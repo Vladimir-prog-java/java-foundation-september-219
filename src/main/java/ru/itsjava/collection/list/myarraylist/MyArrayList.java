@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import ru.itsjava.object.TelephoneShop;
+
 public class MyArrayList {
     private final static int DEFAULT_CAPACITY = 10;
 
@@ -109,43 +111,60 @@ public class MyArrayList {
         } else if (array[index] != null) {
             for (int i = 0; i < array.length; i++) {
                 if (index == i) {
-                    array[i]= array[i+1];
-                    array[i]=element;
+                    realSize++;
+                    for (int j = realSize - 1; j > i; j--) {
+                        array[j] = array[j - 1];
+                    }
+                    array[i] = element;
                     i++;
                 }
-
             }
-        } else {
-            array[index] = element;
-        }
+        } else array[index] = element;
     }
 
     public Object remove(int index) {
-        Object[] resultArray = new Object[array.length];
+        Object[] resultArray = new Object[realSize];
         if (index == realSize) {
             return false;
+
         }
         for (int i = 0; i < realSize; i++) {
+            resultArray[i] = array[i];
             if (i == index) {
                 resultArray[i] = array[i + 1];
                 i++;
+                for (int j = i; j < realSize - 1; j++) {
+                    resultArray[j] = array[j + 1];
+                }
+                break;
             }
-            resultArray[i] = array[i];
         }
         array = resultArray;
         realSize--;
         return array;
-
-
     }
 
 
     public int indexOf(Object o) {
-        return 0;
+        int index = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(o)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        int index = -1;
+        for (int i = realSize-1; i >= 0; i--) {
+            if (array[i].equals(o)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 
     @Override
