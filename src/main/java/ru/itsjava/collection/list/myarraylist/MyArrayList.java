@@ -4,7 +4,6 @@ import ru.itsjava.object.TelephoneShop;
 
 public class MyArrayList {
     private final static int DEFAULT_CAPACITY = 10;
-
     private Object[] array;
     private int realSize;
 
@@ -18,7 +17,7 @@ public class MyArrayList {
     }
 
     public boolean isEmpty() {
-        for (int i = 0; i < realSize; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
                 return true;
             }
@@ -126,7 +125,6 @@ public class MyArrayList {
         Object[] resultArray = new Object[realSize];
         if (index == realSize) {
             return false;
-
         }
         for (int i = 0; i < realSize; i++) {
             resultArray[i] = array[i];
