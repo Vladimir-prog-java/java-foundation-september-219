@@ -43,5 +43,8 @@ public class ThreadPractice {
         new ThreadPrinter("B", 5, monitor).start();
         new ThreadPrinter("C", 5, monitor).start();
 
+      //  Thread.currentThread().join(); <- DeadLock
+
+
     }
 }
