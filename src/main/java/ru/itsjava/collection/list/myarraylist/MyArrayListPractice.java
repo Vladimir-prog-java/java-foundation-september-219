@@ -1,7 +1,5 @@
 package ru.itsjava.collection.list.myarraylist;
 
-import java.util.Arrays;
-
 public class MyArrayListPractice {
     public static void main(String[] args) {
         MyArrayList myArrayList = new MyArrayList();
@@ -13,9 +11,7 @@ public class MyArrayListPractice {
 
 
         System.out.println("myArrayList = " + myArrayList);
-//        myArrayList.remove(0);
-//        System.out.println("myArrayList = " + myArrayList);
-//        System.out.println("myArrayList.isEmpty() = " + myArrayList.isEmpty());
+
 //        myArrayList.remove("str1");
 //        System.out.println("myArrayList = " + myArrayList);
 //
@@ -25,16 +21,12 @@ public class MyArrayListPractice {
 ////myArrayList.clear();
 ////        System.out.println("myArrayList.isEmpty() = " + myArrayList.isEmpty());
 
-
         myArrayList.set(1, "STR");
         System.out.println("myArrayList = " + myArrayList);
-        myArrayList.add(3, "STR0");
+myArrayList.add(1,"STR0");
         System.out.println("myArrayList = " + myArrayList);
-        myArrayList.remove(4);
-        System.out.println("myArrayList = " + myArrayList);
-        System.out.println("myArrayList.indexOf(\"STR\") = " + myArrayList.indexOf("STR"));
-        System.out.println("myArrayList.lastIndexOf(\"str3\") = " + myArrayList.lastIndexOf("str3"));
-
+//myArrayList.remove(1);
+//        System.out.println("myArrayList = " + myArrayList);
 
     }
 
