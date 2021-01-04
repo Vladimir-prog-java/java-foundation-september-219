@@ -23,10 +23,14 @@ public class MyArrayListPractice {
 
         myArrayList.set(1, "STR");
         System.out.println("myArrayList = " + myArrayList);
-myArrayList.add(1,"STR0");
+        myArrayList.add(1, "STR0");
         System.out.println("myArrayList = " + myArrayList);
 //myArrayList.remove(1);
 //        System.out.println("myArrayList = " + myArrayList);
+        String str = "STR100";
+
+        Object[] array = new Object[5];
+
 
     }
 
