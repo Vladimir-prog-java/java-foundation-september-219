@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import ru.itsjava.object.TelephoneShop;
+
 public class MyArrayList {
     private final static int DEFAULT_CAPACITY = 10;
     private Object[] array;
@@ -159,7 +161,7 @@ public class MyArrayList {
 
     public int lastIndexOf(Object o) {
         int index = -1;
-        for (int i = realSize - 1; i >= 0; i--) {
+        for (int i = realSize-1; i >= 0; i--) {
             if (array[i].equals(o)) {
                 index = i;
                 break;
