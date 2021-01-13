@@ -33,12 +33,13 @@ public class MyArrayList {
     }
 
     public Object[] toArray() {
+        //создать массив скопировать все значения до realSize и вернуть обратно
         Object[] resArray = new Object[realSize];
         for (int i = 0; i < realSize; i++) {
-            array[i] = resArray[i];
+            resArray[i] = array[i];
         }
-        array = resArray;
-        return array;
+
+        return resArray;
     }
 
     public boolean add(Object o) {

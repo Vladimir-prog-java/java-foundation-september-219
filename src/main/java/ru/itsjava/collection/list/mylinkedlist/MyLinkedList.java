@@ -10,10 +10,22 @@ public class MyLinkedList {
     }
 
     public boolean isEmpty() {
+        if (realSize == 0) {
+            return true;
+        }
         return false;
     }
 
     public boolean contains(Object o) {
+        Node prevNode = head;
+        int curIndex = 0;
+        while (curIndex < realSize) {
+            if (o.equals(prevNode.getValue())) {
+                return true;
+            }
+            prevNode = prevNode.getNext();
+            curIndex++;
+        }
         return false;
     }
 
@@ -33,24 +45,93 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
+        Node prevNode = head;
+        int curIndex = 0;
+        int count;
+        while (curIndex < realSize) {
+            if (o.equals(prevNode.getValue())) {
+                count = curIndex;
+                remove(count);
+                return true;
+            }
+            prevNode = prevNode.getNext();
+            curIndex++;
+        }
         return false;
     }
 
     public void clear() {
-
+        head = null;
     }
 
     public Object get(int index) {
-        return null;
+        checkIndex(index);
+        if (index == 0) {
+            Node prevHead = head;
+            // head = head.getNext();
+            return prevHead.getValue();
+        }
+        Node prevNode = head;
+        Node curNode = head.getNext();
+        int curIndex = 1;
+        while (curIndex != index) {
+            prevNode = prevNode.getNext();
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        return curNode.getValue();
     }
 
     public Object set(int index, Object element) {
-        return null;
+        checkIndex(index);
+        Node node = new Node(element, null);
+        Node curNode = head;
+        Node nextNode = head.getNext();
+        if (index == 0) {
+            Node oldHead = head;
+            head = node;
+            node.setNext(oldHead.getNext());
+            return oldHead.getValue();
+        } else {
+            int listIndex = 1;
+            while (curNode != null) {
+                if (index == listIndex) {
+                    curNode.setNext(node);
+                    node.setNext(nextNode.getNext());
+                    break;
+                }
+                nextNode = nextNode.getNext();
+                curNode = curNode.getNext();
+                listIndex++;
+            }
+        }
+        return nextNode.getValue();
     }
 
     public void add(int index, Object element) {
-
-
+        checkIndex(index);
+        Node node = new Node(element, null);
+        if (index == 0) {
+            Node oldHead = head;
+            head = node;
+            node.setNext(oldHead);
+            realSize++;
+        } else {
+            int listIndex = 1;
+            Node curNode = head;
+            Node nextNode = head.getNext();
+            while (curNode != null) {
+                if (index == listIndex) {
+                    curNode.setNext(node);
+                    node.setNext(nextNode);
+                    realSize++;
+                    break;
+                }
+                nextNode = nextNode.getNext();
+                curNode = curNode.getNext();
+                listIndex++;
+            }
+        }
     }
 
     private void checkIndex(int index) {
@@ -84,11 +165,36 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+        Node prevNode = head;
+        Node curNode = head.getNext();
+        int curIndex = 1;
+        int count = -1;
+        if (o.equals(prevNode.getValue()))
+            return 0;
+        while (curIndex < realSize) {
+            if (o.equals(curNode.getValue())) {
+                count = curIndex;
+                break;
+            }
+            prevNode = prevNode.getNext();
+            curNode = curNode.getNext();
+            curIndex++;
+        }
+        return count;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        Node prevNode = head;
+        int curIndex = 0;
+        int count = 0;
+        while (curIndex < realSize) {
+            if (o.equals(prevNode.getValue())) {
+                count = curIndex;
+            }
+            prevNode = prevNode.getNext();
+            curIndex++;
+        }
+        return count;
     }
 
     @Override
