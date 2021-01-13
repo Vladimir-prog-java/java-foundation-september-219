@@ -1,5 +1,7 @@
 package ru.itsjava.collection.list.myarraylist;
 
+import java.util.Arrays;
+
 public class MyArrayListPractice {
     public static void main(String[] args) {
         MyArrayList myArrayList = new MyArrayList();
@@ -28,8 +30,18 @@ public class MyArrayListPractice {
 //myArrayList.remove(1);
 //        System.out.println("myArrayList = " + myArrayList);
         String str = "STR100";
+        String str0 = "STRSTR";
+        String str1 = "STRSTR1";
+        String str2 = "STRSTR2";
 
         Object[] array = new Object[5];
+        array[0] = str;
+        array[1] = str0;
+        array[2] = str1;
+        array[3] = str2;
+        array[4] = str0;
+
+        System.out.println("myArrayList.toArray().toString() = " + myArrayList.toArray().toString());
 
 
     }
