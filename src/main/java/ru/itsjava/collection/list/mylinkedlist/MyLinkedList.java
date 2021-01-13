@@ -1,6 +1,5 @@
 package ru.itsjava.collection.list.mylinkedlist;
 
-
 public class MyLinkedList {
     private Node head;
     private int realSize = 0;

@@ -70,9 +70,7 @@ public class MyLinkedListTest {
         list.set(1, ELEM_2);
         list.set(2, ELEM_1);
         list.set(3, ELEM_2);
-
         Assertions.assertEquals(ELEM_2, list.get(1));
-
     }
 
     @DisplayName(" корректно добавлять элемент по индексу")
