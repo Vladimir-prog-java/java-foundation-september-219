@@ -30,7 +30,7 @@ public class MyLinkedListPractice {
         System.out.println("linkedList = " + linkedList);
         System.out.println("linkedList.set(0, \"qqqq\") = " + linkedList.set(0, "qqqq"));
         System.out.println("linkedList = " + linkedList);
-//        System.out.println("linkedList.get(1) = " + linkedList.get(1));
+        System.out.println("linkedList.get(1) = " + linkedList.get(1));
       System.out.println("linkedList = " + linkedList);
 //        System.out.println("linkedList.remove(\"4\") = " + linkedList.remove("4"));
 //        System.out.println("linkedList = " + linkedList);
