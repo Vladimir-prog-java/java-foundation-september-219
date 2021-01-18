@@ -61,6 +61,7 @@ public class MyLinkedList {
 
     public void clear() {
         head = null;
+        realSize--;
     }
 
     public Object get(int index) {

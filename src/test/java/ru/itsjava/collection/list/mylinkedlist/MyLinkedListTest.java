@@ -66,11 +66,12 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveCorrectSetElementByIndex() {
         MyLinkedList list = new MyLinkedList();
-        list.set(0, ELEM_1);
-        list.set(1, ELEM_2);
-        list.set(2, ELEM_1);
-        list.set(3, ELEM_2);
-        Assertions.assertEquals(ELEM_2, list.get(1));
+        list.add(ELEM_1);
+        list.add(ELEM_1);
+        list.add(ELEM_2);
+
+        list.set(2, ELEM_2);
+        Assertions.assertEquals(ELEM_2, list.get(2));
     }
 
     @DisplayName(" корректно добавлять элемент по индексу")
