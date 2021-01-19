@@ -50,8 +50,9 @@ public class MyLinkedListTest {
     public void shouldHaveCorrectClear() {
         MyLinkedList list = new MyLinkedList();
         list.add(ELEM_1);
+        list.add(ELEM_2);
         list.clear();
-        Assertions.assertEquals(null, list.get(0));
+        Assertions.assertEquals(0, list.size());
     }
 
     @DisplayName(" иметь корректный getIndex")
