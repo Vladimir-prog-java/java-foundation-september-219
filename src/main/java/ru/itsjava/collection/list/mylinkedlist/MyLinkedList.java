@@ -186,7 +186,7 @@ public class MyLinkedList {
     public int lastIndexOf(Object o) {
         Node prevNode = head;
         int curIndex = 0;
-        int count = 0;
+        int count = -1;
         while (curIndex < realSize) {
             if (o.equals(prevNode.getValue())) {
                 count = curIndex;

@@ -25,7 +25,7 @@ public class MyLinkedListPractice {
         //System.out.println("linkedList = " + linkedList);
 //        System.out.println("linkedList.indexOf(\"first\") = " + linkedList.indexOf("first"));
 //        System.out.println("linkedList.indexOf(\"5\") = " + linkedList.indexOf("5"));
-//        System.out.println("linkedList.lastIndexOf(\"4\") = " + linkedList.lastIndexOf("4"));
+       System.out.println("linkedList.lastIndexOf(\"4\") = " + linkedList.lastIndexOf("0"));
         linkedList.add(2, "OOO");
         System.out.println("linkedList = " + linkedList);
         System.out.println("linkedList.set(0, \"qqqq\") = " + linkedList.set(0, "qqqq"));
