@@ -5,7 +5,8 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Getter
+@Setter
 @Data
 public class Buyer {
-    final String name;
+     final String name;
 }

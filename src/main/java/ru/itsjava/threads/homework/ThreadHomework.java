@@ -3,6 +3,10 @@ package ru.itsjava.threads.homework;
 import lombok.SneakyThrows;
 
 public class ThreadHomework {
+
+
+
+
     @SneakyThrows
     public static void main(String[] args) {
         Thread threadMessageA = new MessageA();
