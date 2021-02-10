@@ -1,19 +1,21 @@
 package ru.itsjava.annotations.junit;
 
+import ru.itsjava.annotations.junit.annotation.*;
+
 public class MyAmazingTest {
     @Test
     public void test1(){}
-    @Test
+    @Befor
     public void test2(){}
     @Test
     public void test3(){
         throw new AssertionError();
     }
-    @Test
+    @BeforEach
     public void test4(){}
-    @Test
+    @After
     public void test5(){}
-    @Test
+    @AfterEach
     public void test6(){}
 
 

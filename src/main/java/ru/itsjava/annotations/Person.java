@@ -1,8 +1,8 @@
 package ru.itsjava.annotations;
 
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import ru.itsjava.annotations.junit.annotation.MyAnnotation;
 
 @MyAnnotation(message = "Я персона номер один", isFlag = true)
 @RequiredArgsConstructor
