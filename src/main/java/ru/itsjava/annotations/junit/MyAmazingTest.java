@@ -5,13 +5,13 @@ import ru.itsjava.annotations.junit.annotation.*;
 public class MyAmazingTest {
     @Test
     public void test1(){}
-    @Befor
+    @Before
     public void test2(){}
     @Test
     public void test3(){
         throw new AssertionError();
     }
-    @BeforEach
+    @BeforeEach
     public void test4(){}
     @After
     public void test5(){}
