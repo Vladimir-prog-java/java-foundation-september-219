@@ -1,7 +1,7 @@
 package ru.itsjava.annotations.junit;
 
-import ru.itsjava.annotations.junit.annotation.Before;
-import ru.itsjava.annotations.junit.annotation.Test;
+import lombok.SneakyThrows;
+import ru.itsjava.annotations.junit.annotation.*;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -9,26 +9,105 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
+    Class<? extends Annotation> annotation;
 
     public void start() {
         int passedTests = 0;
         int failedTests = 0;
 
-//    Class myAmazingTestClass = MyAmazingTest.class;
-////    myAmazingTestClass
-//    if (myAmazingTestClass.isAnnotationPresent(Before.class)){
-////Method[] methodsBeforeAnnotation = myAmazingTestClass.getAnnotationsByType(Before.class);
-//    }
-
+        MyAmazingTest myAmazingTest = new MyAmazingTest();
         FindMethod findMethod = new FindMethod();
-       Method[] methodList = findMethod.findMethodByAnnotation(Before.class);
+        annotation = Before.class;
+        Method[] methodListBefore = findMethod.findMethodByAnnotation(annotation);
+        for (int i = 0; i < methodListBefore.length; i++) {
+            if (!(methodListBefore[i] == null)) {
+                try {
+                    methodListBefore[i].invoke(myAmazingTest);
+                    System.out.println("Тест " + methodListBefore[i].getName() + " успешно прошел");
+                    passedTests++;
+                } catch (Throwable throwable) {
+                    failedTests++;
+                    throwable.printStackTrace();
+                    System.err.println("Тест " + methodListBefore[i].getName() + " упал");
 
-        for (Method method : methodList) {
-            System.out.println(method.getName());
+                }
+            }
         }
 
+        annotation = BeforeEach.class;
+        Method[] methodListBeforeEach = findMethod.findMethodByAnnotation(annotation);
+        for (int i = 0; i < methodListBeforeEach.length; i++) {
+            if (!(methodListBeforeEach[i] == null)) {
+                try {
+                    methodListBeforeEach[i].invoke(myAmazingTest);
+                    System.out.println("Тест " + methodListBeforeEach[i].getName() + " успешно прошел");
+                    passedTests++;
+                } catch (Throwable throwable) {
+                    failedTests++;
+                    throwable.printStackTrace();
+                    System.err.println("Тест " + methodListBeforeEach[i].getName() + " упал");
 
-//    MyAmazingTest myAmazingTest = new MyAmazingTest();
+                }
+            }
+        }
+        annotation = Test.class;
+        Method[] methodListTest = findMethod.findMethodByAnnotation(annotation);
+        for (int i = 0; i < methodListTest.length; i++) {
+            if (!(methodListTest[i] == null)) {
+                try {
+                    methodListTest[i].invoke(myAmazingTest);
+                    System.out.println("Тест " + methodListTest[i].getName() + " успешно прошел");
+                    passedTests++;
+                } catch (Throwable throwable) {
+                    failedTests++;
+                    throwable.printStackTrace();
+                    System.err.println("Тест " + methodListTest[i].getName() + " упал");
+
+                }
+            }
+        }
+        annotation = AfterEach.class;
+        Method[] methodListAfterEach = findMethod.findMethodByAnnotation(annotation);
+        for (int i = 0; i < methodListAfterEach.length; i++) {
+            if (!(methodListAfterEach[i] == null)) {
+                try {
+                    methodListAfterEach[i].invoke(myAmazingTest);
+                    System.out.println("Тест " + methodListAfterEach[i].getName() + " успешно прошел");
+                    passedTests++;
+                } catch (Throwable throwable) {
+                    failedTests++;
+                    throwable.printStackTrace();
+                    System.err.println("Тест " + methodListAfterEach[i].getName() + " упал");
+
+                }
+            }
+        }
+        annotation = After.class;
+        Method[] methodListAfter = findMethod.findMethodByAnnotation(annotation);
+        for (int i = 0; i < methodListAfter.length; i++) {
+            if (!(methodListAfter[i] == null)) {
+                try {
+                    methodListAfter[i].invoke(myAmazingTest);
+                    System.out.println("Тест " + methodListAfter[i].getName() + " успешно прошел");
+                    passedTests++;
+                } catch (Throwable throwable) {
+                    failedTests++;
+                    throwable.printStackTrace();
+                    System.err.println("Тест " + methodListAfter[i].getName() + " упал");
+
+                }
+            }
+        }
+
+        System.out.println("Количество пройденых тестов:" + passedTests);
+        System.out.println("Количество упавших тестов:" + failedTests);
+
+//        for (Method method : methodListBefore) {
+//            System.out.println(method.getName());
+//        }
+
+
+        //MyAmazingTest myAmazingTest = new MyAmazingTest();
 //
 //    Method[] declaredMethodsMyAmazingTest = MyAmazingTest.class.getDeclaredMethods();
 //    for (Method method : declaredMethodsMyAmazingTest) {
@@ -51,5 +130,5 @@ public class Runner {
 
     }
 
-
 }
+
