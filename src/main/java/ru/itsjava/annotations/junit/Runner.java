@@ -15,7 +15,6 @@ public class Runner {
     public void start() {
         int passedTests = 0;
         int failedTests = 0;
-
       //  MyAmazingTest myAmazingTest = new MyAmazingTest();
         FindMethod findMethod = new FindMethod();
         annotation = Before.class;
@@ -34,9 +33,9 @@ public class Runner {
                 }
             }
         }
-        if (MyAmazingTest.class.isAnnotationPresent(Before.class)) {
-
-        }
+//        if (MyAmazingTest.class.isAnnotationPresent(Before.class)) {
+//
+//        }
 
 
         annotation = BeforeEach.class;
