@@ -1,5 +1,6 @@
 package ru.itsjava.annotations.junit;
 
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import ru.itsjava.annotations.junit.annotation.*;
 
@@ -7,22 +8,22 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-
+@RequiredArgsConstructor
 public class Runner {
     private Class<? extends Annotation> annotation;
-
+    private Class<?> testClass;
     public void start() {
         int passedTests = 0;
         int failedTests = 0;
 
-        MyAmazingTest myAmazingTest = new MyAmazingTest();
+      //  MyAmazingTest myAmazingTest = new MyAmazingTest();
         FindMethod findMethod = new FindMethod();
         annotation = Before.class;
         Method[] methodListBefore = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListBefore.length; i++) {
             if (methodListBefore[i] != null) {
                 try {
-                    methodListBefore[i].invoke(myAmazingTest);
+                    methodListBefore[i].invoke(testClass);
                     System.out.println("Тест " + methodListBefore[i].getName() + " успешно прошел");
                     passedTests++;
                 } catch (Throwable throwable) {
@@ -43,7 +44,7 @@ public class Runner {
         for (int i = 0; i < methodListBeforeEach.length; i++) {
             if (methodListBeforeEach[i] != null) {
                 try {
-                    methodListBeforeEach[i].invoke(myAmazingTest);
+                    methodListBeforeEach[i].invoke(testClass);
                     System.out.println("Тест " + methodListBeforeEach[i].getName() + " успешно прошел");
                     passedTests++;
                 } catch (Throwable throwable) {
@@ -59,7 +60,7 @@ public class Runner {
         for (int i = 0; i < methodListTest.length; i++) {
             if (methodListTest[i] != null) {
                 try {
-                    methodListTest[i].invoke(myAmazingTest);
+                    methodListTest[i].invoke(testClass);
                     System.out.println("Тест " + methodListTest[i].getName() + " успешно прошел");
                     passedTests++;
                 } catch (Throwable throwable) {
@@ -75,7 +76,7 @@ public class Runner {
         for (int i = 0; i < methodListAfterEach.length; i++) {
             if (methodListAfterEach[i] != null) {
                 try {
-                    methodListAfterEach[i].invoke(myAmazingTest);
+                    methodListAfterEach[i].invoke(testClass);
                     System.out.println("Тест " + methodListAfterEach[i].getName() + " успешно прошел");
                     passedTests++;
                 } catch (Throwable throwable) {
@@ -91,7 +92,7 @@ public class Runner {
         for (int i = 0; i < methodListAfter.length; i++) {
             if (methodListAfter[i] != null) {
                 try {
-                    methodListAfter[i].invoke(myAmazingTest);
+                    methodListAfter[i].invoke(testClass);
                     System.out.println("Тест " + methodListAfter[i].getName() + " успешно прошел");
                     passedTests++;
                 } catch (Throwable throwable) {

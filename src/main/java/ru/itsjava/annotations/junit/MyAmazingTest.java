@@ -1,5 +1,7 @@
 package ru.itsjava.annotations.junit;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import ru.itsjava.annotations.junit.annotation.*;
 
 public class MyAmazingTest {
