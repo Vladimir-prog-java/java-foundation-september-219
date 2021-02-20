@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
-    Class<? extends Annotation> annotation;
+    private Class<? extends Annotation> annotation;
 
     public void start() {
         int passedTests = 0;
@@ -20,7 +20,7 @@ public class Runner {
         annotation = Before.class;
         Method[] methodListBefore = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListBefore.length; i++) {
-            if (!(methodListBefore[i] == null)) {
+            if (methodListBefore[i] != null) {
                 try {
                     methodListBefore[i].invoke(myAmazingTest);
                     System.out.println("Тест " + methodListBefore[i].getName() + " успешно прошел");
@@ -33,11 +33,15 @@ public class Runner {
                 }
             }
         }
+        if (MyAmazingTest.class.isAnnotationPresent(Before.class)) {
+
+        }
+
 
         annotation = BeforeEach.class;
         Method[] methodListBeforeEach = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListBeforeEach.length; i++) {
-            if (!(methodListBeforeEach[i] == null)) {
+            if (methodListBeforeEach[i] != null) {
                 try {
                     methodListBeforeEach[i].invoke(myAmazingTest);
                     System.out.println("Тест " + methodListBeforeEach[i].getName() + " успешно прошел");
@@ -53,7 +57,7 @@ public class Runner {
         annotation = Test.class;
         Method[] methodListTest = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListTest.length; i++) {
-            if (!(methodListTest[i] == null)) {
+            if (methodListTest[i] != null) {
                 try {
                     methodListTest[i].invoke(myAmazingTest);
                     System.out.println("Тест " + methodListTest[i].getName() + " успешно прошел");
@@ -69,7 +73,7 @@ public class Runner {
         annotation = AfterEach.class;
         Method[] methodListAfterEach = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListAfterEach.length; i++) {
-            if (!(methodListAfterEach[i] == null)) {
+            if (methodListAfterEach[i] != null) {
                 try {
                     methodListAfterEach[i].invoke(myAmazingTest);
                     System.out.println("Тест " + methodListAfterEach[i].getName() + " успешно прошел");
@@ -85,7 +89,7 @@ public class Runner {
         annotation = After.class;
         Method[] methodListAfter = findMethod.findMethodByAnnotation(annotation);
         for (int i = 0; i < methodListAfter.length; i++) {
-            if (!(methodListAfter[i] == null)) {
+            if (methodListAfter[i] != null) {
                 try {
                     methodListAfter[i].invoke(myAmazingTest);
                     System.out.println("Тест " + methodListAfter[i].getName() + " успешно прошел");
