@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import ru.itsjava.annotations.junit.annotation.*;
 
 public class MyAmazingTest {
+    public MyAmazingTest() {
+    }
+
     @Test
     public void test1(){}
     @Before

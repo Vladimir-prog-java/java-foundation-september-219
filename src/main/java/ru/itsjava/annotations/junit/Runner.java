@@ -1,5 +1,6 @@
 package ru.itsjava.annotations.junit;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import ru.itsjava.annotations.junit.annotation.*;
@@ -8,17 +9,26 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-@RequiredArgsConstructor
+
+//@RequiredArgsConstructor
 public class Runner {
     private Class<? extends Annotation> annotation;
     private Class<?> testClass;
+
+    public Runner(Class<?> testClass) {
+        this.testClass = testClass;
+    }
+
+
     public void start() {
         int passedTests = 0;
         int failedTests = 0;
-      //  MyAmazingTest myAmazingTest = new MyAmazingTest();
+
+
+
         FindMethod findMethod = new FindMethod();
         annotation = Before.class;
-        Method[] methodListBefore = findMethod.findMethodByAnnotation(annotation);
+        Method[] methodListBefore = findMethod.findMethodByAnnotation(annotation, testClass.getDeclaredMethods());
         for (int i = 0; i < methodListBefore.length; i++) {
             if (methodListBefore[i] != null) {
                 try {
@@ -39,7 +49,7 @@ public class Runner {
 
 
         annotation = BeforeEach.class;
-        Method[] methodListBeforeEach = findMethod.findMethodByAnnotation(annotation);
+        Method[] methodListBeforeEach = findMethod.findMethodByAnnotation(annotation, testClass.getDeclaredMethods());
         for (int i = 0; i < methodListBeforeEach.length; i++) {
             if (methodListBeforeEach[i] != null) {
                 try {
@@ -55,7 +65,7 @@ public class Runner {
             }
         }
         annotation = Test.class;
-        Method[] methodListTest = findMethod.findMethodByAnnotation(annotation);
+        Method[] methodListTest = findMethod.findMethodByAnnotation(annotation, testClass.getDeclaredMethods());
         for (int i = 0; i < methodListTest.length; i++) {
             if (methodListTest[i] != null) {
                 try {
@@ -71,7 +81,7 @@ public class Runner {
             }
         }
         annotation = AfterEach.class;
-        Method[] methodListAfterEach = findMethod.findMethodByAnnotation(annotation);
+        Method[] methodListAfterEach = findMethod.findMethodByAnnotation(annotation, testClass.getDeclaredMethods());
         for (int i = 0; i < methodListAfterEach.length; i++) {
             if (methodListAfterEach[i] != null) {
                 try {
@@ -87,7 +97,7 @@ public class Runner {
             }
         }
         annotation = After.class;
-        Method[] methodListAfter = findMethod.findMethodByAnnotation(annotation);
+        Method[] methodListAfter = findMethod.findMethodByAnnotation(annotation, testClass.getDeclaredMethods());
         for (int i = 0; i < methodListAfter.length; i++) {
             if (methodListAfter[i] != null) {
                 try {
