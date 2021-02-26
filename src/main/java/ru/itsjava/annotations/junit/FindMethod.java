@@ -4,20 +4,21 @@ import lombok.ToString;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 public class FindMethod {
-    public Method[] findMethodByAnnotation(Class<? extends Annotation> annotation, Method[] declaredMethods) {
-             Method[] methodsAnnotationInclude = new Method[declaredMethods.length];
+    public List<Method> findMethodsByAnnotation(Class<? extends Annotation> annotation, Method[] declaredMethods) {
+        List<Method> methodsByAnnotation = new ArrayList<>();
         for (int i = 0; i < declaredMethods.length; i++) {
 
             if (declaredMethods[i].isAnnotationPresent(annotation)) {
-                System.out.println("Метод " + declaredMethods[i] + " содержит аннотацию " + annotation);
-                methodsAnnotationInclude[i] = declaredMethods[i];
+               methodsByAnnotation.add(declaredMethods[i]);
             }
 
         }
-        return methodsAnnotationInclude;
+        return methodsByAnnotation;
     }
 }
 

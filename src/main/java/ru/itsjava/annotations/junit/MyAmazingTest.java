@@ -1,7 +1,5 @@
 package ru.itsjava.annotations.junit;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import ru.itsjava.annotations.junit.annotation.*;
 
 public class MyAmazingTest {
@@ -9,21 +7,29 @@ public class MyAmazingTest {
     }
 
     @Test
-    public void test1(){}
+    public void test1() {
+    }
+
     @Before
-    public void test2(){}
+    public void beforeTest() {
+    }
+
     @Test
-    public void test3(){
+    public void test3() {
         throw new AssertionError();
     }
+
     @BeforeEach
-    public void test4(){}
+    public void beforeEachTest() {
+    }
+
     @After
-    public void test5(){}
+    public void AfterTest() {
+    }
+
     @AfterEach
-    public void test6(){}
-
-
+    public void afterEachTest() {
+    }
 
 
 }
